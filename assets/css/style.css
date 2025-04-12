@@ -566,40 +566,59 @@ input {
 
 /* ========== Responsive Design ========== */
 
-/* Tablets: hasta 992px */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
+    /* ===== NAV MENU ===== */
+    .nav__menu {
+      position: absolute;
+      top: var(--header-height);
+      left: 0;
+      width: 100%;
+      background-color: #1f1f1f;
+      padding: 1rem 0;
+      z-index: 200;
+      display: none; /* Oculto por defecto */
+      flex-direction: column;
+    }
+  
+    .nav__menu.show-menu {
+      display: flex;
+    }
+  
+    .nav__list {
+      flex-direction: column;
+      row-gap: 1.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  
+    .nav__link {
+      font-size: 1rem;
+      color: white;
+    }
+  
+    .nav__togle {
+      display: block;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  
+    .nav__close {
+      display: block;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  
+    /* ===== RESPONSIVE ESTILOS ===== */
     .home__container,
     .resume__container,
     .skills__container,
     .project__item {
       grid-template-columns: 1fr !important;
-    }
-  
-    .home__img {
-      transform: none;
-      margin: 0 auto;
-    }
-  
-    .project__img {
-      border-radius: 0.25rem 0.25rem 0 0;
-      height: auto;
-    }
-  
-    .project__data {
-      padding: 2rem;
-    }
-  
-    .skills__container {
-      column-gap: 2rem;
-      row-gap: 2rem;
-    }
-  }
-  
-  /* Móviles: hasta 768px */
-  @media screen and (max-width: 768px) {
-    .nav__list {
-      flex-direction: column;
-      row-gap: 1.25rem;
     }
   
     .services__container {
@@ -608,6 +627,8 @@ input {
   
     .skills__container {
       grid-template-columns: 1fr;
+      column-gap: 2rem;
+      row-gap: 2rem;
     }
   
     .project__categories {
@@ -628,6 +649,8 @@ input {
     .home__img {
       width: 100%;
       height: auto;
+      transform: none;
+      margin: 0 auto;
     }
   
     .home__data {
@@ -645,8 +668,7 @@ input {
       padding-left: 0;
     }
   }
-  
-  /* Dispositivos pequeños: hasta 480px */
+
   @media screen and (max-width: 480px) {
     .container {
       padding-left: 1rem;
@@ -665,3 +687,4 @@ input {
       font-size: 1rem;
     }
   }
+  
