@@ -532,6 +532,16 @@
     </div>
   </footer>
 
+  <div id="image-lightbox" class="fixed inset-0 z-[70] hidden items-center justify-center bg-night/90 p-4 md:p-8">
+    <button id="lightbox-close" type="button" class="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded border border-cyan/60 bg-panel/80 text-2xl text-cyan transition hover:border-pink hover:text-pink" aria-label="Cerrar imagen">
+      <i class="ri-close-line"></i>
+    </button>
+    <div class="w-full max-w-5xl">
+      <img id="lightbox-image" src="" alt="" class="max-h-[80vh] w-full rounded border border-neon/35 bg-night object-contain">
+      <p id="lightbox-caption" class="mt-3 text-center text-xs uppercase tracking-[0.2em] text-steel"></p>
+    </div>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
   <script>
@@ -545,6 +555,52 @@
     }
 
     document.getElementById("year-text").textContent = "Registro completado: " + new Date().getFullYear();
+
+    const diplomaAndCertificateImages = document.querySelectorAll(".diploma-slot img, .certificate-slot img");
+    const lightbox = document.getElementById("image-lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const lightboxCloseBtn = document.getElementById("lightbox-close");
+
+    const openLightbox = (imgElement) => {
+      lightboxImage.src = imgElement.src;
+      lightboxImage.alt = imgElement.alt;
+      lightboxCaption.textContent = imgElement.alt || "Imagen";
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+      document.body.classList.add("overflow-hidden");
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.add("hidden");
+      lightbox.classList.remove("flex");
+      lightboxImage.src = "";
+      document.body.classList.remove("overflow-hidden");
+    };
+
+    diplomaAndCertificateImages.forEach((imgElement) => {
+      imgElement.classList.add("cursor-zoom-in");
+      imgElement.setAttribute("role", "button");
+      imgElement.setAttribute("tabindex", "0");
+
+      imgElement.addEventListener("click", () => openLightbox(imgElement));
+      imgElement.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(imgElement);
+        }
+      });
+    });
+
+    lightboxCloseBtn.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("flex")) {
+        closeLightbox();
+      }
+    });
 
     gsap.registerPlugin(ScrollTrigger);
 
