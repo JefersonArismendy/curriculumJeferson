@@ -303,6 +303,44 @@
             </article>
           </div>
         </div>
+
+        <div class="mt-6 rounded-xl border border-dashed border-cyan/60 bg-night/70 p-5 md:p-6">
+          <p class="text-xs uppercase tracking-[0.3em] text-steel">Certificados</p>
+          <div class="certificate-slot mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <article class="rounded-lg border border-neon/35 bg-panel/70 p-3">
+              <img src="assets/img/test-driven-development.mobile.png" alt="Certificado de Test Driven Development Mobile" class="h-52 w-full rounded border border-neon/25 bg-night/60 object-contain">
+              <p class="mt-3 text-center text-[11px] uppercase tracking-[0.2em] text-slate-200">TDD Mobile</p>
+            </article>
+            <article class="rounded-lg border border-neon/35 bg-panel/70 p-3">
+              <img src="assets/img/atomic-design.png" alt="Certificado de Atomic Design" class="h-52 w-full rounded border border-neon/25 bg-night/60 object-contain">
+              <p class="mt-3 text-center text-[11px] uppercase tracking-[0.2em] text-slate-200">Atomic Design</p>
+            </article>
+            <article class="rounded-lg border border-neon/35 bg-panel/70 p-3">
+              <img src="assets/img/control-versiones-git.png" alt="Certificado de Control de Versiones con Git" class="h-52 w-full rounded border border-neon/25 bg-night/60 object-contain">
+              <p class="mt-3 text-center text-[11px] uppercase tracking-[0.2em] text-slate-200">Git</p>
+            </article>
+            <article class="rounded-lg border border-neon/35 bg-panel/70 p-3">
+              <img src="assets/img/scrum.png" alt="Certificado de Scrum" class="h-52 w-full rounded border border-neon/25 bg-night/60 object-contain">
+              <p class="mt-3 text-center text-[11px] uppercase tracking-[0.2em] text-slate-200">Scrum</p>
+            </article>
+            <article class="rounded-lg border border-neon/35 bg-panel/70 p-3">
+              <img src="assets/img/administrador-base-datos.png" alt="Certificado de Administrador de Base de Datos" class="h-52 w-full rounded border border-neon/25 bg-night/60 object-contain">
+              <p class="mt-3 text-center text-[11px] uppercase tracking-[0.2em] text-slate-200">Base de Datos</p>
+            </article>
+            <article class="rounded-lg border border-neon/35 bg-panel/70 p-3">
+              <img src="assets/img/css.png" alt="Certificado de CSS" class="h-52 w-full rounded border border-neon/25 bg-night/60 object-contain">
+              <p class="mt-3 text-center text-[11px] uppercase tracking-[0.2em] text-slate-200">CSS</p>
+            </article>
+            <article class="rounded-lg border border-neon/35 bg-panel/70 p-3">
+              <img src="assets/img/desarrollo-ia.png" alt="Certificado de Desarrollo con IA" class="h-52 w-full rounded border border-neon/25 bg-night/60 object-contain">
+              <p class="mt-3 text-center text-[11px] uppercase tracking-[0.2em] text-slate-200">Desarrollo IA</p>
+            </article>
+            <article class="rounded-lg border border-neon/35 bg-panel/70 p-3">
+              <img src="assets/img/frond-end.png" alt="Certificado de Front End" class="h-52 w-full rounded border border-neon/25 bg-night/60 object-contain">
+              <p class="mt-3 text-center text-[11px] uppercase tracking-[0.2em] text-slate-200">Front End</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -556,6 +594,14 @@
       duration: 0.7,
       ease: "power2.out",
       scrollTrigger: { trigger: ".diploma-slot", start: "top 85%" }
+    });
+
+    gsap.from(".certificate-slot", {
+      scale: 0.97,
+      opacity: 0,
+      duration: 0.7,
+      ease: "power2.out",
+      scrollTrigger: { trigger: ".certificate-slot", start: "top 85%" }
     });
 
     gsap.utils.toArray(".skill-bar").forEach((bar) => {
